@@ -3,6 +3,7 @@
 This is the code belonging to my Bachelor thesis as completion of my Bachelor Applied Mathematics at the TU Delft.
 
 There are two ways to use this programme:
+
 1. Use the algorithm to find a network given a set of binets
   The binets should be the input in the file 'binets.txt'
   Each binet should be represented with two nodes and a connection 0 or 1. 0 indicates a tree binet, 1 indicates a hybrid binet with the second node the result of the hybridization.
