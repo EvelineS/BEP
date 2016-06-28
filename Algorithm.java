@@ -18,16 +18,24 @@ public class Algorithm {
 	static int changeForRemoval = 10;
 	static int changeForAlteration = 10;
 	static boolean goToNextIteration = false;
+	static boolean removeBinets = false;
 	
 	public static void main(String[] args) throws FileNotFoundException{
 		initialize();
 		
-		//Option 1: find network for binet set; lines 163 and 170 must be uncommented, lines 164 and 171 must be commented
+		//Option 1: Run the original algorithm, do not remove binets.
+//		removeBinets = false;
+//		runAlgorithm(binets);
+//		System.out.println(newick);
+		
+		//Option 2: find network for binet set; lines 172 and 184 must be uncommented, lines 172 and 184 must be commented
+//		removeBinets = true;
 //		currentAlternativeNo = 1;
 //		runAlgorithm(binets);
 //		System.out.println(newick);
 		
-		//Option2: compare the four alternatives for removal; lines 163 and 170 should be commented, lines 164 and 171 must be uncommented
+		//Option3: compare the four alternatives for removal; lines 172 and 184 should be commented, lines 172 and 184 must be uncommented
+		removeBinets = true;
 		int numberOfIterations = 100;
 		
 		for (int iterationNo = 0; iterationNo<numberOfIterations; iterationNo++) {
@@ -159,16 +167,26 @@ public class Algorithm {
 					}
 					else {
 						errorNo = 2;
-						AlternativesForRemoval.removeBinetsAlternatives(binets, currentAlternativeNo);
-						//System.exit(0);
-						goToNextIteration = true;
+						if(removeBinets == true) {
+							AlternativesForRemoval.removeBinetsAlternatives(binets, currentAlternativeNo);
+							//System.exit(0);
+							goToNextIteration = true;	
+						}
+						else {
+							System.exit(0);
+						}
 					}
 				}
 				else {
 					errorNo = 1;
-					AlternativesForRemoval.removeBinetsAlternatives(binets, currentAlternativeNo);
-					//System.exit(0);
-					goToNextIteration = true;
+					if(removeBinets == true) {
+						AlternativesForRemoval.removeBinetsAlternatives(binets, currentAlternativeNo);
+						//System.exit(0);
+						goToNextIteration = true;
+					}
+					else {
+						System.exit(0);
+					}
 				}
 			}
 		}
