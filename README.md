@@ -4,6 +4,7 @@ This is the code belonging to my Bachelor thesis as completion of my Bachelor Ap
 
 The binets should be the input in the file 'binets.txt'
 Each binet should be represented with two nodes and a connection 0 or 1. 0 indicates a tree binet, 1 indicates a hybrid binet with the second node the result of the hybridization.
+When the programme outputs a network, given the binet set, it is shown in a newick string. The programme 'Dendroscope' can be used to convert this string to a visual representation of the network.
 
 There are three ways to use this programme:
 
