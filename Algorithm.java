@@ -24,9 +24,9 @@ public class Algorithm {
 		initialize();
 		
 		//Option 1: Run the original algorithm, do not remove binets.
-//		removeBinets = false;
-//		runAlgorithm(binets);
-//		System.out.println(newick);
+		removeBinets = false;
+		runAlgorithm(binets);
+		System.out.println(newick);
 		
 		//Option 2: find network for binet set; lines 172 and 184 must be uncommented, lines 172 and 184 must be commented
 //		removeBinets = true;
@@ -35,29 +35,29 @@ public class Algorithm {
 //		System.out.println(newick);
 		
 		//Option3: compare the four alternatives for removal; lines 172 and 184 should be commented, lines 172 and 184 must be uncommented
-		removeBinets = true;
-		int numberOfIterations = 100;
+		// removeBinets = true;
+		// int numberOfIterations = 100;
 		
-		for (int iterationNo = 0; iterationNo<numberOfIterations; iterationNo++) {
-			System.out.println(iterationNo);
-			Binet[] binetArray = binets;
-			Binet[] alteredBinets = alterBinets(binets);
-			binets = alteredBinets;
-			for (int alternativeNo = 0; alternativeNo<4; alternativeNo++) {
-				currentAlternativeNo = alternativeNo+1;
-				runAlgorithm(binets);
-				totalError[alternativeNo] = totalError[alternativeNo] + (binetArray.length-binets.length);
-				resetValues(alteredBinets);
-				goToNextIteration = false;
-			}
-			resetValues(binetArray);
-		}
-		for (int alternativeNo = 0; alternativeNo<4; alternativeNo++) {
-			errorArray[alternativeNo]=averagePerIteration(totalError[alternativeNo],numberOfIterations);
-			System.out.print("Total amount of errors for alternative ");
-			System.out.print(alternativeNo+1);
-			System.out.println(" is: " + errorArray[alternativeNo]);
-		}
+		// for (int iterationNo = 0; iterationNo<numberOfIterations; iterationNo++) {
+		// 	System.out.println(iterationNo);
+		// 	Binet[] binetArray = binets;
+		// 	Binet[] alteredBinets = alterBinets(binets);
+		// 	binets = alteredBinets;
+		// 	for (int alternativeNo = 0; alternativeNo<4; alternativeNo++) {
+		// 		currentAlternativeNo = alternativeNo+1;
+		// 		runAlgorithm(binets);
+		// 		totalError[alternativeNo] = totalError[alternativeNo] + (binetArray.length-binets.length);
+		// 		resetValues(alteredBinets);
+		// 		goToNextIteration = false;
+		// 	}
+		// 	resetValues(binetArray);
+		// }
+		// for (int alternativeNo = 0; alternativeNo<4; alternativeNo++) {
+		// 	errorArray[alternativeNo]=averagePerIteration(totalError[alternativeNo],numberOfIterations);
+		// 	System.out.print("Total amount of errors for alternative ");
+		// 	System.out.print(alternativeNo+1);
+		// 	System.out.println(" is: " + errorArray[alternativeNo]);
+		// }
 	}
 	
 	public static void initialize() throws FileNotFoundException{
